@@ -1,0 +1,74 @@
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+.container {
+    height: 100%;
+}
+
+*:focus {
+    outline: none !important;
+}
+
+body {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 30px;
+    color: #000;
+}
+
+header nav ul {
+    background-color: tomato;
+    text-align: center;
+}
+
+header nav {
+    height: 40px;
+}
+
+header nav ul,
+header nav li,
+header nav li a {
+    height: 100%;
+}
+
+header nav li {
+    display: inline-block;
+    margin: 0 5px;
+    line-height: 40px;
+}
+
+header nav li a {
+    display: inline-block;
+    background-color: red;
+    text-decoration: none;
+    padding: 0 10px;
+    color: #000;
+    transition: all .1s ease-in;
+}
+
+header nav li a:hover {
+    background-color: green;
+    color: yellow;
+}
+
+.item,
+li {
+    margin-bottom: 10px;
+    color: #000;
+}
+
+li:nth-child(3n + 1) {
+    color: red;
+}
+
+input:required {
+    border-color: red
+
+}
