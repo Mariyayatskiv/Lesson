@@ -1,0 +1,299 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --tomato: tomato;
+    --white: #fff;
+    --pink: pink;
+    --gray: gray;
+    --animate-duration: 800ms;
+    --animate-delay: 0.9s;
+}
+
+.item {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--tomato);
+    color: var(--white);
+    font-size: 20px;
+    line-height: 26px;
+    cursor: pointer;
+}
+
+.item--color {
+    transition: color var(--animate-duration) ease, background-color var(--animate-duration) ease;
+}
+
+.item--border-radius {
+    transition: border-radius .3s linear;
+}
+
+.item--rotate,
+.item--scale {
+    transition: transform .3s ease
+}
+
+.item--translate {
+    transition: transform .3s linear;
+}
+
+.item--color:hover {
+    background-color: var(--white);
+    color: var(--tomato);
+}
+
+.item--border-radius:hover {
+    border-radius: 10px;
+} 
+
+.item--scale:hover {
+    transform: scale(1.3);
+}
+
+.item--translate:hover {
+    transform: translate(20px, 20px);
+    box-shadow: -20px -20px 0 var(--pink);
+}
+
+.item--skew {
+    position: relative;
+    overflow: hidden;
+}
+
+.item--skew::after {
+    content: '';
+    background-color: var(--pink);
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    opacity: 0;
+    top: 0;
+    left: 0;
+
+    transition: transform .3s ease
+}
+
+.item--skew:hover::after {
+    opacity: 0.5;
+    transform: skewX(-50deg);
+}
+
+.item--skew span {
+    position: relative;
+    z-index: 1;
+}
+
+.wrapper {
+    display: inline-block;
+    width: 92px;
+    height: 46px;
+    background-color: var(--gray);
+}
+
+.item--rotate {
+    transform: scaleZ(1) rotateY(0deg);
+}
+
+.item:hover .item--rotate {
+    transform: scaleZ(3) rotateY(45deg);
+}
+
+
+.item--underline {
+    position: relative;
+    background-color: unset;
+    color: var(--pink);
+    transition: color .3s ease-out;
+}
+
+.item--underline:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 10px;
+    background-color: var(--tomato);
+
+    transition: all .3s ease-out;
+}
+
+.item--underline:hover {
+    color: var(--tomato);
+}
+
+.item--underline:hover:after {
+    width: 100%;
+}
+
+.item--pulse {
+    /* animation-name: pulse;
+    animation-timing-function: ease;
+    animation-duration: .2s;
+    animation-iteration-count: infinite; */
+
+    animation: pulse 1s ease infinite 1s;
+}
+
+@keyframes pulse {
+    from,
+    to {
+        transform: scale(1);
+    }
+
+    /* 25% {
+        transform: scale(1.2);
+    } */
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@-webkit-keyframes pulse {
+    from,
+    to {
+        transform: scale(1);
+    }
+
+    /* 25% {
+        transform: scale(1.2);
+    } */
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@-moz-keyframes pulse {
+    from,
+    to {
+        transform: scale(1);
+    }
+
+    /* 25% {
+        transform: scale(1.2);
+    } */
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@-o-keyframes pulse {
+    from,
+    to {
+        transform: scale(1);
+    }
+
+    /* 25% {
+        transform: scale(1.2);
+    } */
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes pulse-2 {
+    0% {
+        top: 0;
+        left: 0
+    }
+
+    20% {
+        top: 20px
+    }
+
+    50% {
+        top: 60px
+    }
+
+    /* 52%,
+    67% {
+        top: 20px
+    }
+
+    67% {
+        left: -10px;
+    } */
+
+
+    52% {
+        top: 20px
+    }
+
+    67% {
+        top: 20px;
+        left: -10px;
+    }
+} 
+
+/* @keyframes pulse-1 {
+    from {
+
+    }
+
+    20% {
+
+    }
+
+    30% {
+        
+    }
+
+    to {
+
+    }
+} */
+
+.item--shake:hover {
+    animation: shake .6s ease 5;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    20%,
+    60% {
+        transform: translateX(-15px);
+    }
+
+    40%,
+    80% {
+        transform: translateX(15px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.space-top {
+    margin-top: 20px;
+}
+
+.spaces {
+    margin: 50px;
+}
+
+
+.card-group-1 {
+    animation: flip .3s ease;
+}
+
+.card-group-2 {
+    animation: flip .3s ease .4s;
+}
+
+.card-group-3 {
+    animation: flip .3s ease .8s;
+}
