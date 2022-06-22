@@ -1,0 +1,47 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: aliceblue;
+    --red: red;
+}
+
+body {
+    margin: 30px;
+    background-color: var(--bg);
+}
+
+.block svg {
+    width: 200px;
+}
+
+.block svg path {
+    fill: var(--red);
+    transition: fill .3s ease;
+}
+
+.block svg:hover path {
+    fill: green;
+}
+
+#twitter path {
+    fill: green;
+}
+
+.svg path {
+    fill: #D1E7FF;
+    transition: fill .3s ease;
+}
+
+.svg path.path-8 {
+    fill: #007FFC
+}
+
+.wrap:hover svg path {
+    fill: red;
+}
