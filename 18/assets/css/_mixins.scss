@@ -1,0 +1,76 @@
+@mixin transition($property...) {
+    transition-duration: .3s;
+    transition-property: $property;
+    transition-timing-function: ease;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin container {
+    width: 90%;
+    max-width: 1110px;
+    margin: 0 auto;
+
+    @include maxWidth($mobile) {
+        margin: 0;
+        padding: 0 10px;
+    }
+}
+
+@mixin media($width) {
+    @media screen and (min-width: $width){
+        @content;
+    }
+}
+
+@mixin maxWidth($width) {
+    @media screen and (max-width: $width){
+        @content;
+    }
+}
+
+@mixin spacing($padding, $margin) {
+    @if $padding < $margin {
+        padding: $padding;
+    } @else {
+        margin: $margin
+    }
+
+    @if(($padding < $margin) or (not $padding)) {
+        padding: $padding * 2;
+    }
+}
+
+@mixin block($heigh) {
+    background-color: red;
+    margin: 100px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 0 10px #000012;
+
+    @if($heigh < 100px) {
+        padding: 30px 0;
+    }
+}
+
+@mixin link($weight) {
+    font-size: 16px;
+    line-height: 20px;
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: $weight;
+
+    @if($weight != 400) {
+        font-family: 'Courier New', Courier, monospace;
+    } @else {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    &:hover {
+        color: pink;
+    }
+}

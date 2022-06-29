@@ -1,0 +1,191 @@
+.header {
+    background-color: $white;
+    border-bottom: 1px solid $grey;
+    padding: 20px 0;
+
+    &__container {
+        @extend .container;
+    }
+
+    &__wrapper {
+        @include flexCenter;
+    }
+
+    &__nav {
+        @include maxWidth($tablet) {  
+            position: fixed;
+            left: 0;
+            right: 20%;
+            top: 79px;
+            bottom: 0;
+            background-color: $white;
+            padding: 40px 0;
+            z-index: 2;
+            @include transition(transform);
+            transform: translateX(-100%);
+        }
+
+        .nav {
+            &__list {
+                margin-right: 20px;
+
+                @include maxWidth($tablet) {
+                    width: 90%;
+                    margin: 0 auto;
+                }
+            }
+
+            &__el {
+                margin-right: 5px;
+
+                @include maxWidth($tablet) {
+                    display: block;
+                    margin-right: 0;
+                    margin-bottom: 5px;
+                }
+
+                &:first-child {
+                    .nav__link {
+                        padding-left: 0;
+                    }
+                }
+            }
+
+            &__link {
+                @include maxWidth($tablet) {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+
+    &__call {
+        border: none;
+        padding: 10px 20px;
+        @include text($white);
+        border-radius: 4px;
+        background-color: $blue;
+    }
+
+    &__burger {
+        display: none;
+        position: relative;
+        width: 20px;
+        height: 14px;
+        background: transparent;
+        border-top: 2px solid;
+        border-bottom: 2px solid;
+        color: $grey;
+        font-size: 0;
+        @include transition(all);
+
+        @include maxWidth($tablet) {
+            @include flex;
+        }
+
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: $grey;
+            position: absolute;
+            left: 0;
+            @include transition(transform);
+        }
+    }
+}
+
+#mobile-menu {
+    display: none;
+
+    &:checked {
+        display: block;
+
+        & + .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+
+            & .header {
+                &__nav {
+                    transform: translateX(0);
+                }
+
+                &__burger {
+                    border-color: transparent;
+        
+                    &::before {
+                        transform: rotate(45deg);
+                    }
+        
+                    &:after {
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+        }
+
+        & ~ main .overlay {
+            opacity: 1;
+            z-index: 1;
+        }
+    }
+}
+
+.nav {
+    &__list {
+        list-style: none;
+    }
+
+    &__el {
+        display: inline-block;
+    }
+
+    &__link {
+        display: inline-block;
+        @include text;
+        padding: 5px 10px;
+        text-decoration: none;
+        @include transition(color);
+
+        &:hover {
+            color: $blue;
+        }
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 79px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: -1;
+    background-color: $overlay;
+    @include transition(opacity);
+}
+
+.footer {
+    background-color: $bisque;
+    margin-top: 20px;
+
+    &__container {
+        @extend .container
+    }
+
+    .nav {
+        &__el {
+            display: block; 
+            margin-bottom: 5px;
+        }
+
+        &__link { 
+            padding-left: 0;
+        }
+    }
+}

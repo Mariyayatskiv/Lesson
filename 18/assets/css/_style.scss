@@ -1,0 +1,9 @@
+.block {
+    @include block(100);
+    @include spacing(10px, 20px);
+
+    &__wrapper {
+        @include block(10);
+        @include spacing(20px, 10px);
+    }
+}
